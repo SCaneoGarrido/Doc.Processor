@@ -1,0 +1,2 @@
+comenzar con el diseño y construccion del home de la pagina 
+arreglar los estilos del formulario de registro para la web.

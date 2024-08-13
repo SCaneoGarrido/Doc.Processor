@@ -1,0 +1,97 @@
+.formContainer {
+    position: relative; /* Permite que los elementos hijos se posicionen en relación a este contenedor */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.5); /* Color de fondo semitransparente para mejorar la legibilidad */
+    color: white;
+}
+
+.backgroundVideo {
+    position: absolute; /* Posiciona el video en el fondo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que el video cubra todo el contenedor */
+    z-index: -1; /* Envía el video al fondo detrás del contenido */
+}
+
+.overlay {
+    position: relative; /* Posiciona el contenido encima del video */
+    z-index: 1;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    width: 100%;
+    height: 100%;
+}
+
+.signUpFormContainer {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente para el formulario */
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 400px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signUpForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.fieldsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.fieldsContainer input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo blanco semitransparente para los campos */
+}
+
+.fieldsContainer input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.buttonsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.signUpBtn {
+    background-color: #2e2c2c; /* Color de fondo por defecto */
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'Bebas Neue', sans-serif;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.signUpBtn:hover {
+    background-color: #218838; /* Color de fondo que se mantiene durante el hover */
+    transform: scale(1.05);
+}

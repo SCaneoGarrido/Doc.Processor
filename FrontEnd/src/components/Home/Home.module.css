@@ -1,0 +1,492 @@
+/* Estilo para la sección del hero */
+.heroSection {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 150px 40px 60px;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    height: 100vh;
+    background-color: black;
+}
+
+.heroSection::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: url('./wave.svg') no-repeat bottom center;
+    background-size: cover;
+    z-index: 1;
+}
+
+.backgroundVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1s ease-in-out;
+}
+
+.transitioning {
+    opacity: 0;
+}
+
+.transitionOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    transition: opacity 1s ease-in-out;
+    pointer-events: none;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+}
+
+.heroTitle {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.heroSubtitle {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.getStartedBtn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.getStartedBtn:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo para la sección de beneficios */
+.benefitsSection {
+    padding: 40px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+/* Título de la sección */
+.sectionTitle {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: bold;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Contenedor de los beneficios */
+.benefits {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* Estilo para cada beneficio */
+.benefit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.benefit:hover {
+    cursor: pointer;
+    transform: translateY(-10px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen dentro del beneficio */
+.benefit img {
+    max-width: 100%;
+    height: auto;
+    width: 180px;
+    margin-bottom: 15px;
+}
+
+/* Título y descripción del beneficio */
+.benefitTitle {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: black;
+    font-weight: bold;
+    /* Aumenta la visibilidad del título */
+}
+
+.benefitDescription {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    /* Mejora la legibilidad */
+    text-align: center;
+    /* Alinea el texto en el centro */
+}
+
+/* Estilo para los recuadros explicativos en beneficios y cómo funciona */
+.benefitsExplanation,
+.howItWorksExplanation {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 30px;
+    /* Mayor espacio interno */
+    margin-bottom: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Añadido para consistencia con otros componentes */
+    position: relative;
+    /* Para posicionar los íconos de robot */
+}
+
+/* Imagen o gif en el recuadro */
+.benefitsExplanation .sideImage,
+.howItWorksExplanation .sideImage {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.benefitsExplanation .leftImage,
+.howItWorksExplanation .leftImage {
+    left: 10px;
+}
+
+.benefitsExplanation .rightImage,
+.howItWorksExplanation .rightImage {
+    right: 10px;
+}
+
+/* Título y texto de los recuadros explicativos */
+.benefitsExplanation h3,
+.howItWorksExplanation h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #007bff;
+    font-weight: bold;
+    /* Título más prominente */
+    position: relative;
+}
+
+.benefitsExplanation h3::before,
+.howItWorksExplanation h3::before {
+    content: "🤖";
+    /* Símbolo de robot antes del título */
+    position: absolute;
+    left: -40px;
+    /* Ajusta la posición según sea necesario */
+    font-size: 24px;
+}
+
+.benefitsExplanation h3::after,
+.howItWorksExplanation h3::after {
+    content: "🤖";
+    /* Símbolo de robot después del título */
+    position: absolute;
+    right: -40px;
+    /* Ajusta la posición según sea necesario */
+    font-size: 24px;
+}
+
+.benefitsExplanation p,
+.howItWorksExplanation p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+    margin: 20px 0;
+    /* Añadido margen para separación */
+}
+
+/* Estilo para la sección de cómo funciona */
+.howItWorksSection {
+    padding: 40px;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+/* Contenedor de los pasos */
+.howItWorks {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* Estilo para cada paso */
+.step {
+    max-width: 320px;
+    margin: 20px auto;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.step:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen del paso */
+.stepImage {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+/* Título y descripción del paso */
+.stepTitle {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #007bff;
+    font-weight: bold;
+    /* Título más prominente */
+}
+
+.stepDescription {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Línea decorativa en el paso */
+.step::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #007bff;
+}
+
+/* Estilo para la sección de IA y ML */
+.AiMLsection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 10%;
+}
+
+.AiMLsectionContent {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Contenedor de cada item de IA/ML */
+.AiMLContentItem {
+    flex: 1;
+    padding: 20px;
+    margin: 0 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    height: 400px;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Imagen en el contenedor IA/ML */
+.imageContent {
+    width: 40%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Texto en el contenedor IA/ML */
+.textContent {
+    width: 55%;
+}
+
+/* Animaciones para entrada desde la izquierda y derecha */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Estilo para la sección 'Comienza Ya' */
+.comienzaYaSection {
+    background-color: #fff;
+    /* Color de fondo acorde al diseño */
+    color: black;
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Título de la sección 'Comienza Ya' */
+.comienzaYaTitle {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Contenedor del collage de imágenes */
+.comienzaYaCollage {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    animation: collageAnimation 1s ease-out;
+}
+
+/* Estilo para cada imagen en el collage */
+.comienzaYaImageContainer {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+/* Imagen en el collage */
+.comienzaYaImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Contenedor del texto de beneficio sobre la imagen */
+.comienzaYaImageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Filtro oscuro */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    border-radius: 8px;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    /* Permite que el cursor interactúe con la imagen */
+}
+
+/* Texto de beneficio */
+.comienzaYaOverlayText {
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Efecto hover para las imágenes del collage */
+.comienzaYaImageContainer:hover .comienzaYaImage {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+/* Mostrar overlay al hacer hover */
+.comienzaYaImageContainer:hover .comienzaYaImageOverlay {
+    opacity: 1;
+}
+
+/* Animación para el collage de imágenes */
+@keyframes collageAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Botón de llamada a la acción */
+.button89 {
+    --b: 3px;
+    /* border thickness */
+    --s: .45em;
+    /* size of the corner */
+    --color: #373B44;
+
+    padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+    color: var(--color);
+    --_p: var(--s);
+    background:
+        conic-gradient(from 90deg at var(--b) var(--b), #0000 90deg, var(--color) 0) var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+    transition: .3s linear, color 0s, background-color 0s;
+    outline: var(--b) solid #0000;
+    outline-offset: .6em;
+    font-size: 16px;
+
+    border: 0;
+
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button89:hover,
+.button89:focus-visible {
+    --_p: 0px;
+    outline-color: var(--color);
+    outline-offset: .05em;
+}
+
+.button89:active {
+    background: var(--color);
+    color: #fff;
+}

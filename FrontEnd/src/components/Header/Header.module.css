@@ -1,0 +1,91 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    transition: box-shadow 0.3s ease-in-out; /* Suaviza la transición del box-shadow */
+}
+
+.header:hover {
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8); /* Efecto de resplandor en los bordes */
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    margin: 0;
+}
+
+.menuToggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+.active {
+    background-color: #0056b3;
+    transform: rotate(45deg);
+}
+
+.nav {
+    display: flex;
+    gap: 15px;
+}
+
+.navLink {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* Añadido box-shadow a la transición */
+}
+
+.navLink:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+    color: #fff;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 1); /* Efecto de resplandor en los bordes */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+        width: 100%;
+        padding: 20px;
+    }
+
+    .navOpen {
+        display: flex;
+    }
+
+    .menuToggle {
+        display: flex;
+    }
+}
