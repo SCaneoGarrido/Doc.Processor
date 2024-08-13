@@ -9,9 +9,7 @@ Este proyecto utiliza React para el frontend y Express.js para el backend. A con
 - [Instalación y Configuración](#instalación-y-configuración)
   - [Frontend (React)](#frontend-react)
   - [Backend (Express.js)](#backend-expressjs)
-- [Ejecutar el Proyecto](#ejecutar-el-proyecto)
-- [Notas Adicionales](#notas-adicionales)
-
+  - 
 ## Requisitos
 
 - Node.js (v14 o superior recomendado)
