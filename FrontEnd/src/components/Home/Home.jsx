@@ -1,7 +1,10 @@
-import React, { useState, useRef,useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
+
 import styles from "./Home.module.css";
 import Header from "../Header/header";
 import Footer from "../Footer/footer";
+
+
 
 // Importación de imágenes y video
 import Imagen1 from './img/Imagen1.jpeg';
@@ -30,7 +33,7 @@ const HomePage = () => {
 
     useEffect(() => {
         const videoElement = videoRef.current;
-    
+
         const handleEnded = () => {
             setTransitioning(true);
             setTimeout(() => {
@@ -38,7 +41,7 @@ const HomePage = () => {
                 setTransitioning(false);
             }, 1000)
         };
-    
+
         const playVideo = async () => {
             try {
                 await videoElement.play(); // Espera a que el video comience a reproducirse
@@ -46,13 +49,13 @@ const HomePage = () => {
                 console.error("Error al intentar reproducir el video:", error);
             }
         };
-    
+
         videoElement.addEventListener('ended', handleEnded);
-    
+
         // Cargar y reproducir el nuevo video
         videoElement.load(); // Cargar el nuevo video
         playVideo(); // Intentar reproducir el video
-    
+
         return () => {
             videoElement.removeEventListener('ended', handleEnded);
         };
@@ -173,31 +176,10 @@ const HomePage = () => {
                 <section className={styles.comienzaYaSection}>
                     <h2 className={styles.comienzaYaTitle}>¡Comienza Ya!</h2>
                     <p>Descubre todas las posibilidades que Doc.Processor puede ofrecerte. Explora nuestras herramientas y optimiza tu experiencia académica.</p>
-                    <div className={styles.comienzaYaCollage}>
-                        <div className={styles.comienzaYaImageContainer}>
-                            <img src={Imagen1} alt="Posibilidad 1" className={styles.comienzaYaImage} />
-                            <div className={styles.comienzaYaImageOverlay}>
-                                <p className={styles.comienzaYaOverlayText}>Automatización de tareas</p>
-                            </div>
-                        </div>
-                        <div className={styles.comienzaYaImageContainer}>
-                            <img src={Imagen2} alt="Posibilidad 2" className={styles.comienzaYaImage} />
-                            <div className={styles.comienzaYaImageOverlay}>
-                                <p className={styles.comienzaYaOverlayText}>Mejora de eficiencia</p>
-                            </div>
-                        </div>
-                        <div className={styles.comienzaYaImageContainer}>
-                            <img src={Imagen3} alt="Posibilidad 3" className={styles.comienzaYaImage} />
-                            <div className={styles.comienzaYaImageOverlay}>
-                                <p className={styles.comienzaYaOverlayText}>Acceso desde cualquier lugar</p>
-                            </div>
-                        </div>
-                        {/* Agrega más imágenes según sea necesario */}
-                    </div>
+                    <carousel/>
                     <br />
                     <button className={styles.button89}>Comienza Ya</button>
                 </section>
-
 
             </div>
             <Footer />
