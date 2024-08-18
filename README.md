@@ -47,7 +47,9 @@ Este proyecto utiliza React para el frontend y Express.js para el backend. A con
 ## Configuracion del archivo de config.js
 
 1.- **Navegar a la carpeta de -class- dentro del directorio --src--**
+
 2.- **Dentro de la carpeta --class-- cree un archivo con el nombre "config.js"**
+
 3.- **Agregue el siguiente contenido al archivo:**
   ```bash
       module.exports = {
