@@ -2,8 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const multerStorage = require('./middleware/multerConfig');
-const FileManager = require('./util/FileReader');
-const GptService = require('./class/SummarizerGPT');
 const SpeechService = require('./class/Speech');
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -29,41 +27,28 @@ app.post('/login', async (req, res) => {
     res.status(201).json({ message: "Datos recibidos" });
 });
 
-// este endpoint es solo para  la carga del archivo
-app.post('/summarize', multerStorage.single('file'), async (req, res) => {
-    // Instancia de GptService
-    const gptService = new GptService();
-    const document = req.body;
-    if (!document) {
-        return res.status(400).send('No File Uploaded');
-    }
-    //global.filePath = req.file.path;
 
+app.post('/syntehize', multerStorage.single('file'), async (req, res) => {
     try {
-        const summary = await gptService.summarizeDocument(document);
-        if(summary != '') {
-            res.status(200).json({ summary })
-        } else {
-            console.log('Hubo un error al realizar el resumen');
-            res.status(500).json({error: 'No se ha conseguido realizar la peticion'});
+        let document = req.body;
+
+        if (!document) {
+            console.log('No File Uploaded');
+            return res.status(400).json({message:'No file Uploaded'});
         }
 
-    } catch (error) {
-        console.error(error);
+        global.filePath = req.file.path;
 
-    }
-})
+        const speech = new SpeechService();
 
-app.post('/test', async (req, res) => {
-    const { text } = req.body;
-    const Speech_instance = new SpeechService();
-    console.log(`Texto de entrada: ${text}`);
-    try {
-        Speech_instance.test(text);
-        return res.status(200).json({ msg: 'Texto procesado' });
-    } catch (error) {
-        console.error(`Error en el testeo. Error -> ${error}`);
-        return res.status(500).json({ error: 'Error interno del servidor' });
+        await speech.processFile(global.filePath);
+
+        return res.status(201).json({message:'Archivo procesado exitosamente ;D'});
+
+
+    } catch(error) {
+        console.error(`Error al momento de sintetizar el texto a audio: ${error}`);
+        return res.status(500).json({message:'Error interno del servidor'});
     }
 });
 
