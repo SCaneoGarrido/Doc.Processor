@@ -55,6 +55,25 @@ class Speech {
             );
         });
     }
+
+    // crear metodo para obtener las voces de azure
+
+    getvoices() {
+        const audioConfig = sdk.AudioConfig.fromDefaultSpeakerOutput();
+        const synthesizer = new sdk.SpeechSynthesizer(this.speechConfig, audioConfig);  
+
+        synthesizer.getVoicesAsync((result) => {
+            if (result.reason === sdk.ResultReason.VoicesListRetrieved) {
+                console.log('Voces disponibles: ');
+                result.voices.foreach((voice) => {
+                    console.log(`${voice.name} - ${voice.locale}`); 
+                });
+            } else {
+                console.error(`Error al obtener las voces: ${result.errorDetails}`);
+            }
+        })
+    }
+
 }
 
 module.exports = Speech;

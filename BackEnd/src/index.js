@@ -16,13 +16,14 @@ app.use(morgan('combined'));
 require('dotenv').config();
 
 
-
+// ------------------- POST METHODS ------------------- //
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
     console.log(`Los datos para manejar el login son: ${email} - ${password}`);
 
-    // Aquí puedes agregar la lógica para autenticar al usuario
+    // agregar logica de login :,D
+    // pd: No te mates 
 
     res.status(201).json({ message: "Datos recibidos" });
 });
@@ -42,7 +43,6 @@ app.post('/syntehize', multerStorage.single('file'), async (req, res) => {
         const speech = new SpeechService();
 
         await speech.processFile(global.filePath);
-
         return res.status(201).json({message:'Archivo procesado exitosamente ;D'});
 
 
@@ -51,6 +51,22 @@ app.post('/syntehize', multerStorage.single('file'), async (req, res) => {
         return res.status(500).json({message:'Error interno del servidor'});
     }
 });
+
+
+// ------------------- GET METHODS ------------------- //
+app.get('/testvoices', async (req, res) => {
+    try {
+        const speech = new SpeechService();
+
+        if (speech.getvoices() === true) {
+            return res.status(200).json({message:'Voces obtenidads con exito'});
+        }
+
+    } catch(error) {
+        console.log(`Error en la peticion -> ${error}`);
+        return res.status(500).json({message: 'Error interno del servidor'});
+    }
+})
 
 
 app.listen(PORT, () => {
