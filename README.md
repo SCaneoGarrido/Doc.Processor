@@ -44,6 +44,19 @@ Este proyecto utiliza React para el frontend y Express.js para el backend. A con
     - npm install 
     - npm start
 
+## Configuracion del archivo de config.js
 
+1.- **Navegar a la carpeta de -class- dentro del directorio --src--**
+
+2.- **Dentro de la carpeta --class-- cree un archivo con el nombre "config.js"**
+
+3.- **Agregue el siguiente contenido al archivo:**
+  ```bash
+      module.exports = {
+      SPEECH_KEY: process.env.SPEECH_KEY || 'tu_clave_de_suscripción', 
+      SPEECH_REGION: process.env.SPEECH_REGION || 'tu_región_de_servicio', 
+    }
+  ```
+4.- **Reemplaze las variables con las claves de su servicio de Speech de Azure**
 
 
