@@ -40,6 +40,8 @@ class Speech {
                 result => {
                     if (result.reason === sdk.ResultReason.SynthesizingAudioCompleted) {
                         console.log('Texto sintetizado correctamente.');
+                        console.log(`Archivo guardado en: ${this.OutputPath}`);
+                        return this.OutputPath;
                         resolve();
                     } else {
                         console.error("Error en la síntesis:", result.errorDetails);
@@ -59,6 +61,7 @@ class Speech {
     // crear metodo para obtener las voces de azure
 
     getvoices() {
+        const voice_array = []; // aqui almacenamos las voces
         const audioConfig = sdk.AudioConfig.fromDefaultSpeakerOutput();
         const synthesizer = new sdk.SpeechSynthesizer(this.speechConfig, audioConfig);  
 
@@ -67,7 +70,9 @@ class Speech {
                 console.log('Voces disponibles: ');
                 result.voices.foreach((voice) => {
                     console.log(`${voice.name} - ${voice.locale}`); 
+                    // aqui debemos retornar alguna variable 
                 });
+                return true;
             } else {
                 console.error(`Error al obtener las voces: ${result.errorDetails}`);
             }
